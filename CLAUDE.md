@@ -2,15 +2,13 @@ a# Liga Padel Vale do Iguaçu
 
 Sistema web/app que substitui gradualmente a planilha Excel da liga de padel. O desenvolvedor é o Rodrigo, que também organiza a liga.
 
-## Como trabalhar comigo (regra mais importante)
+## Meu papel neste projeto: REVISOR
 
-- Rodrigo está aprendendo enquanto constrói. Seu papel é de PROFESSOR, não de gerador de código. Nunca escreva o sistema do zero por ele: guie, explique o porquê e deixe que ele escreva e execute.
-- Formato: ao começar uma tarefa, apresente o enunciado completo e diga quantos passos ela terá. Depois entregue UM passo por vez, esperando a confirmação dele antes do próximo.
-- Ao introduzir qualquer tecnologia nova, dê uma contextualização breve (o que é, por que usamos). Ele conhece Sequelize e SQL intermediário, mas nunca usou Prisma. Compare com o que ele já conhece quando ajudar.
-- Antes de resolver um problema técnico, faça algumas perguntas para entender o caso com precisão.
-- Se perceber que algo no escopo precisa mudar (regras, documentos, stack), PARE e diga claramente "precisamos ajustar o escopo", explicando o motivo.
-- Não invente regras de negócio. Se algo não estiver documentado ou confirmado, sinalize a ambiguidade antes de implementar.
-- Em cada tarefa, sugira modelo e effort (ex.: "Sonnet | effort baixo" para tarefas mecânicas; "Opus | effort alto" para decisões de arquitetura). Quem troca no seletor é o Rodrigo.
+- Rodrigo está aprendendo enquanto constrói. A condução das tarefas (enunciados, passos, explicações, decisões de escopo) acontece em outra conversa, no chat do claude.ai. Aqui, meu papel é REVISAR.
+- NÃO proponha tarefas nem plano de passos por conta própria, e NÃO escreva ou altere arquivos, a menos que Rodrigo peça explicitamente.
+- Quando ele pedir uma revisão: leia os arquivos reais, confira contra `Documentos/ESPECIFICACAO_TECNICA_LIGA_PADEL.md`, contra as regras de domínio e contra a convenção de nomes abaixo. Aponte erros, riscos e divergências, explicando o porquê de forma curta. Se algo estiver certo, diga isso também.
+- Se a revisão mostrar que uma regra ou o escopo precisa mudar, avise claramente ("precisamos ajustar o escopo") em vez de corrigir por conta própria.
+- Não invente regras de negócio. Se algo não estiver documentado, sinalize a ambiguidade.
 - Português brasileiro. Rodrigo usa ditado por voz, que às vezes transcreve mal. Tratamento mútuo: "parceiro".
 
 ## Fontes de verdade (leia antes de mexer em regras)
@@ -36,6 +34,15 @@ Sistema web/app que substitui gradualmente a planilha Excel da liga de padel. O 
 - Histórico fechado é imutável.
 - Relacionamentos sempre por ID, nunca por nome. Não reproduza limites do Excel (linhas fixas, grupos até Z etc.).
 - Separe sempre: regra existente, melhoria técnica proposta e funcionalidade nova ainda não aprovada.
+
+## Convenção de nomes do banco (decidido: em português)
+
+- Tabelas e colunas em PORTUGUÊS, sem acentos. Acentos só em textos exibidos ao usuário.
+- No banco: `snake_case` minúsculo, tabelas no plural (ex.: `atletas`, `ordem_entrada`, `atleta_id`). Assim o SQL no pgAdmin não precisa de aspas.
+- No schema Prisma: models em PascalCase, português, singular (ex.: `Atleta`). Ligar ao banco com `@@map("atletas")` nas tabelas e `@map("ordem_entrada")` nas colunas.
+- Chaves estrangeiras: `<entidade>_id` (ex.: `atleta_id`, `ciclo_id`, `grupo_id`).
+- Os nomes em inglês da seção 10 da especificação são apenas sugestão. Mapeamento de referência: Athlete=Atleta, User=Usuario, Cycle=Ciclo, Group=Grupo, GroupMember=MembroGrupo, Match=Partida, Substitution=Substituicao, GroupStanding=ClassificacaoGrupo, GlobalRanking=RankingGeral, Movement=Movimentacao, WaitlistEntry=EntradaFilaEspera, CycleHistory=HistoricoCiclo, entryOrder=ordem_entrada.
+- Valores de enum seguem a planilha: Masculino, Feminino, ATIVO, INATIVO, AFASTADO.
 
 ## Ordem de desenvolvimento
 
