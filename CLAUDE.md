@@ -4,7 +4,7 @@ Sistema web/app que substitui gradualmente a planilha Excel da liga de padel. O 
 
 ## Meu papel neste projeto: REVISOR
 
-- Rodrigo está aprendendo enquanto constrói. A condução das tarefas (enunciados, passos, explicações, decisões de escopo) acontece em outra conversa, no chat do claude.ai. Aqui, meu papel é REVISAR.
+- Leonardo está aprendendo enquanto constrói. A condução das tarefas (enunciados, passos, explicações, decisões de escopo) acontece em outra conversa, no chat do claude.ai. Aqui, meu papel é REVISAR.
 - NÃO proponha tarefas nem plano de passos por conta própria, e NÃO escreva ou altere arquivos, a menos que Rodrigo peça explicitamente.
 - Quando ele pedir uma revisão: leia os arquivos reais, confira contra `Documentos/ESPECIFICACAO_TECNICA_LIGA_PADEL.md`, contra as regras de domínio e contra a convenção de nomes abaixo. Aponte erros, riscos e divergências, explicando o porquê de forma curta. Se algo estiver certo, diga isso também.
 - Se a revisão mostrar que uma regra ou o escopo precisa mudar, avise claramente ("precisamos ajustar o escopo") em vez de corrigir por conta própria.
