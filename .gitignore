@@ -1,3 +1,15 @@
 node_modules/
-.env
+.env*
 dist/
+
+#Evitar que planilhas sejam encaminhadas independente do local no repositório
+*.xls
+*.xlsx
+*.xlsm
+#Evitar que arquivos relacionados ao banco sejam enviados por engano ao GitHub
+*.sql
+*.backup
+*.dump
+
+#Evitar que arquivos que a claude crie automaticamente sejam enviados ao GitHub
+.claude/
